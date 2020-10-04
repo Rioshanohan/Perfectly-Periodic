@@ -1,15 +1,19 @@
+const elements = {}
+
 class Element {
-  constructor (abbr, atNum) {
+  constructor (name, abbr, atNum, atWght) {
     this._abbr = abbr
     this._num = atNum
+    this._name = name
+    this._atWght = atWght
+    elements[this._abbr] = this
   }
 
-  get shortexplanation () {
-    return 'the atomic number of '
+  shortexplanation () {
+    console.log(this._name + "'s atomic number is " + this._num)
   }
 }
 
-const hydrogen = new Element('H', 1)
+const hydrogen = new Element('Hydrogen', 'H', 1)
 
-console.log(hydrogen._abbr)
-console.log('I AM A BUNNY')
+console.log(elements[hydrogen._abbr])
