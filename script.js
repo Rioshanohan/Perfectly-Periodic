@@ -3,7 +3,7 @@ class Element {
     this._abbr = abbr
     this._num = atNum
   }
-``
+
   get shortexplanation () {
     return 'the atomic number of '
   }
