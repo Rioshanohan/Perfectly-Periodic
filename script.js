@@ -16,4 +16,4 @@ class Element {
 
 const hydrogen = new Element('Hydrogen', 'H', 1)
 
-console.log(elements[hydrogen._abbr])
+console.log(elements[hydrogen._abbr].toString())
