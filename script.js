@@ -12,3 +12,4 @@ class Element {
 const hydrogen = new Element('H', 1)
 
 console.log(hydrogen._abbr)
+console.log('I AM A BUNNY')
