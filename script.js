@@ -26,3 +26,4 @@ while (i < names.length) {
   console.log(elements[abbrs[i]]._name)
   i++
 }
+console.log("Hello world.")
