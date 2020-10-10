@@ -26,4 +26,16 @@ while (i < names.length) {
   eval('const ' + names[i] + ' = new Element("' + names[i] + '", "' + abbrs[i] + '", ' + (i + 1) + ',' + masses[i] + ')')
   i++
 }
-console.log(elements[1].shortexplanation())
+//var bob = window.prompt("enter an element number: ")
+//alert(elements[bob].shortexplanation())
+//console.log(elements[Elnum].shortexplanation())
+
+function getinput(){
+  var atnum = document.getElementById("myInput").value
+  alert(elements[atnum].shortexplanation())
+}
+function random(){
+  var bob = document.getElementById("myInput")
+  alert(bob)
+  console.log(bob)
+}
