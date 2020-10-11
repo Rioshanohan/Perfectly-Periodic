@@ -1,5 +1,8 @@
+
 # Perfectly-Periodic  
+
 This is a periodic table with everything you would need for your 8th grade science class.  
+
 >This has helped me so much!  
 
 -Any 8th grader that's ever used this  
