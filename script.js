@@ -8,34 +8,29 @@ const masses = c.split(' ')
 var i = 0
 
 class Element {
-  constructor (name, abbr, atNum, atWght) {
-    this._abbr = abbr
-    this._num = atNum
-    this._name = name
-    this._mass = atWght
-    elements[this._num] = this
+	constructor (name, abbr, atNum, atWght) {
+		this._abbr = abbr
+		this._num = atNum
+		this._name = name
+		this._mass = atWght
+		elements[this._num] = this
   }
 
-  shortexplanation () {
-    return `${this._name}'s abbreviation is ${this._abbr}. It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. You can find the number of neutrons by subtracting the atomic number.`
+	shortexplanation () {
+  	return `${this._name}'s abbreviation is ${this._abbr}. It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. You can find the number of neutrons by subtracting the atomic number.`
   }
 }
 
 
 while (i < names.length) {
-  eval('const ' + names[i] + ' = new Element("' + names[i] + '", "' + abbrs[i] + '", ' + (i + 1) + ',' + masses[i] + ')')
-  i++
+	eval('const ' + names[i] + ' = new Element("' + names[i] + '", "' + abbrs[i] + '", ' + (i + 1) + ',' + masses[i] + ')')
+	i++
 }
 //var bob = window.prompt("enter an element number: ")
 //alert(elements[bob].shortexplanation())
 //console.log(elements[Elnum].shortexplanation())
 
 function getinput(){
-  var atnum = document.getElementById("myInput").value
-  alert(elements[atnum].shortexplanation())
-}
-function random(){
-  var bob = document.getElementById("myInput")
-  alert(bob)
-  console.log(bob)
+  	var atnum = document.getElementById("myInput").value
+  	document.getElementById("output").innerHTML = elements[atnum].shortexplanation()
 }
