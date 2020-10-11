@@ -17,7 +17,7 @@ class Element {
   }
 
   shortexplanation () {
-    return `${this._name}'s abbreviation is ${this._abbr}. It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. You can find the number of neutrons by subtracting the atomic number.`
+    return `${this._name}'s abbreviation is ${this._abbr}. It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom).\nIt has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom.\nYou can find the number of neutrons by subtracting the atomic number.`
   }
 }
 
@@ -32,10 +32,8 @@ while (i < names.length) {
 
 function getinput(){
   var atnum = document.getElementById("myInput").value
-  alert(elements[atnum].shortexplanation())
+  //alert(elements[atnum].shortexplanation())
+  document.getElementById("p1").innerHTML = elements[atnum].shortexplanation()
 }
-function random(){
-  var bob = document.getElementById("myInput")
-  alert(bob)
-  console.log(bob)
-}
+console.log(elements[1].shortexplanation())
+
