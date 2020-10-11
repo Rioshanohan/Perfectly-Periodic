@@ -26,9 +26,6 @@ while (i < names.length) {
 	eval('const ' + names[i] + ' = new Element("' + names[i] + '", "' + abbrs[i] + '", ' + (i + 1) + ',' + masses[i] + ')')
 	i++
 }
-//var bob = window.prompt("enter an element number: ")
-//alert(elements[bob].shortexplanation())
-//console.log(elements[Elnum].shortexplanation())
 
 function getinput(){
   	var atnum = document.getElementById("myInput").value
