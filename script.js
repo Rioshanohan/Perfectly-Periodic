@@ -33,12 +33,13 @@ function getinput(){
 	check = Number(input)
 	if(isNaN(check)){
 		console.log("not a number")
+
 	}else {
 		input = Number(input)
 	}
 	if (typeof input == "number"){
 		console.log("is number")
-		
+		paragraph.innerHTML = elements[input].shortexplanation()
 	} else if (typeof input == "string"){
 		if(input.length <= 2){
 			console.log("is abbr")
@@ -50,6 +51,12 @@ function getinput(){
 			}
 		}else{
 			console.log("is name")
+			for (key in elements){
+				if(elements[key]._name.toUpperCase() == input.toUpperCase()){
+					paragraph.innerHTML = elements[key].shortexplanation()
+					break
+				}
+			}
 		}
 	}
 }
