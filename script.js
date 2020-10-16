@@ -17,7 +17,7 @@ class Element {
 	}
 
 	shortexplanation () {
-		return `${this._name}'s abbreviation is ${this._abbr}. It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. You can find the number of neutrons by subtracting the atomic number.`
+		return `${this._name}'s abbreviation is ${this._abbr}. <br> It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. <br> You can find the number of neutrons by subtracting the atomic number.`
 
 	}
 }
@@ -28,6 +28,28 @@ while (i < names.length) {
 }
 
 function getinput(){
-	var atnum = document.getElementById("myInput").value
-	document.getElementById("p1").innerHTML = elements[atnum].shortexplanation()
+	var paragraph = document.getElementById("p1")
+	var input = document.getElementById("myInput").value
+	check = Number(input)
+	if(isNaN(check)){
+		console.log("not a number")
+	}else {
+		input = Number(input)
+	}
+	if (typeof input == "number"){
+		console.log("is number")
+		
+	} else if (typeof input == "string"){
+		if(input.length <= 2){
+			console.log("is abbr")
+			for (key in elements){
+				if(elements[key]._abbr.toUpperCase() == input.toUpperCase()){
+					paragraph.innerHTML = elements[key].shortexplanation()
+					break
+				}
+			}
+		}else{
+			console.log("is name")
+		}
+	}
 }
