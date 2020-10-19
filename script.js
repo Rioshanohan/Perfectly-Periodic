@@ -27,24 +27,23 @@ while (i < names.length) {
 	i++
 }
 
-function getinput(){
+function getinput(value){
 	var paragraph = document.getElementById("p1")
-	var input = document.getElementById("myInput").value
-	check = Number(input)
+	check = Number(value)
 	if(isNaN(check)){
 		console.log("not a number")
 
 	}else {
-		input = Number(input)
+		value = Number(value)
 	}
-	if (typeof input == "number"){
+	if (typeof value == "number"){
 		console.log("is number")
-		paragraph.innerHTML = elements[input].shortexplanation()
-	} else if (typeof input == "string"){
-		if(input.length <= 2){
+		paragraph.innerHTML = elements[value].shortexplanation()
+	} else if (typeof value == "string"){
+		if(value.length <= 2){
 			console.log("is abbr")
 			for (key in elements){
-				if(elements[key]._abbr.toUpperCase() == input.toUpperCase()){
+				if(elements[key]._abbr.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
 					break
 				}
@@ -52,11 +51,17 @@ function getinput(){
 		}else{
 			console.log("is name")
 			for (key in elements){
-				if(elements[key]._name.toUpperCase() == input.toUpperCase()){
+				if(elements[key]._name.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
 					break
 				}
 			}
 		}
 	}
+}
+function generate(index){
+	console.log(`<td onclick="getinput(${index})" class="element">${elements[index]._num}<br>${elements[index]._name}<br>${elements[index]._mass}</td>`)
+}
+for(i=1;i <= 118;i++){
+	generate(i)
 }
