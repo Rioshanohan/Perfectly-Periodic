@@ -18,6 +18,8 @@ table {
     border: none;
 }
 .empty {
-    background-color: rgb(100,255,127);
     border: none;
+}
+.current {
+    background-color: mediumturquoise;
 }

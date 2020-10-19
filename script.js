@@ -59,8 +59,21 @@ function getinput(value){
 		}
 	}
 }
+function setCurrent(newElem){
+	var currentCurrent = document.getElementsByClassName("current element")
+	for(var gg = 0;gg<currentCurrent.length;gg++){
+		currentCurrent[gg].className = "element"
+	}
+	document.getElementById(newElem).className = "current element"
+}
+function boom(){
+	var baboom = document.getElementsByClassName("current")
+	for(var ii = 0;ii<baboom.length;ii++){
+		console.log(baboom[ii].className)
+	}
+}
 function generate(index){
-	console.log(`<td onclick="getinput(${index})" class="element">${elements[index]._num}<br>${elements[index]._name}<br>${elements[index]._mass}</td>`)
+	console.log(`<td onclick="getinput(${index})" class="element" id="${elements[index]._num}">${elements[index]._num}<br>${elements[index]._name}<br>${elements[index]._mass}</td>`)
 }
 for(i=1;i <= 118;i++){
 	generate(i)
