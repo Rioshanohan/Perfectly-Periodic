@@ -40,6 +40,7 @@ function getinput(value){
 		console.log("is number")
 		paragraph.innerHTML = elements[value].shortexplanation()
 		setCurrent(value)
+		document.getElementById("myInput").value = ""
 	} else if (typeof value == "string"){
 		if(value.length <= 2){
 			console.log("is abbr")
@@ -47,6 +48,7 @@ function getinput(value){
 				setCurrent(key)
 				if(elements[key]._abbr.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
+					document.getElementById("myInput").value = ""
 					break
 				}
 			}
@@ -56,6 +58,7 @@ function getinput(value){
 				setCurrent(key)
 				if(elements[key]._name.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
+					document.getElementById("myInput").value = ""
 					break
 				}
 			}
