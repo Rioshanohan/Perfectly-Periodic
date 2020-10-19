@@ -39,10 +39,12 @@ function getinput(value){
 	if (typeof value == "number"){
 		console.log("is number")
 		paragraph.innerHTML = elements[value].shortexplanation()
+		setCurrent(value)
 	} else if (typeof value == "string"){
 		if(value.length <= 2){
 			console.log("is abbr")
 			for (key in elements){
+				setCurrent(key)
 				if(elements[key]._abbr.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
 					break
@@ -51,6 +53,7 @@ function getinput(value){
 		}else{
 			console.log("is name")
 			for (key in elements){
+				setCurrent(key)
 				if(elements[key]._name.toUpperCase() == value.toUpperCase()){
 					paragraph.innerHTML = elements[key].shortexplanation()
 					break
