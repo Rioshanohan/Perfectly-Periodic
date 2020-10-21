@@ -15,9 +15,8 @@ class Element {
 		this._mass = atWght
 		elements[this._num] = this
 	}
-
 	shortexplanation () {
-		return `${this._name}'s abbreviation is ${this._abbr}. <br> It has an atomic number of ${this._num}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> It has an average atomic mass of ${this._mass}, which is the number of protons and neutrons in that atom. <br> You can find the number of neutrons by subtracting the atomic number.`
+		return `${this._name.fontcolor("blue")}'s abbreviation is ${this._abbr.fontcolor("blue")}. <br> It has an atomic number of ${this._num.toString().fontcolor("blue")}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> It has an average atomic mass of ${this._mass.toString().fontcolor("blue")}, which is the number of protons and neutrons in that atom. <br> You can find the number of neutrons by subtracting the atomic number.`
 
 	}
 }
