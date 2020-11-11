@@ -1,5 +1,6 @@
 body{
     background-color:springgreen;
+    border-radius: 15px;
 }
 h1 {
     color:midnightblue;
@@ -13,13 +14,31 @@ table {
     border-collapse: collapse;
 }
 .spacer {
-    background-color: rgb(0, 255, 200);
-    color: darkblue;
     border: none;
+    background-color: aqua;
+}
+.element {
+  border-radius: 15px;
+  border-width: 2px;
+  background-color: brown;
 }
 .empty {
     border: none;
 }
-.current {
-    background-color: mediumturquoise;
+.actinide {
+  background-color: violet;
+}
+.nonmetal{
+  background-color: aqua;
+}
+.lanthanide {
+  background-color: rgb(228, 148, 0);
+}
+.noblegas {
+  background-color: purple;
+}
+.current{
+  background-color: mediumturquoise;
+  border-color: white;
+  border-style: double;
 }

@@ -5,7 +5,7 @@
         <link href="styles.css" rel="stylesheet" type="text/css">
         <link rel="icon" href="icon.png">
     </head>
-    <body onload="getinput(1)">
+    <body onload="getinput(1);elemsInit()">
         <h1>TO BOND OR NOT TO BOND. THAT IS THE QUESTION</h1>
         <p>Type an atomic number, element abbreviation, or element name. <br>
         Click Search and you will be given a brief explanation of the element!</p>
@@ -40,9 +40,9 @@
             <tbody>
                 <tr>
                     <th>1</th>
-                    <td onclick="getinput(1)" class="current element" id="1">1<br>Hydrogen<br>1.008</td>
+                    <td onclick="getinput(1)" class="nonmetal element current" id="1">1<br>Hydrogen<br>1.008</td>
                     <td colspan="16" class="empty"></td>
-                    <td onclick="getinput(2)" class="element" id="2">2<br>Helium<br>4.003</td>
+                    <td onclick="getinput(2)" class="element noblegas" id="2">2<br>Helium<br>4.003</td>
                 </tr>
                 <tr>
                     <th>2</th>
@@ -54,7 +54,7 @@
                     <td onclick="getinput(7)" class="element" id="7">7<br>Nitrogen<br>14.007</td>
                     <td onclick="getinput(8)" class="element" id="8">8<br>Oxygen<br>15.999</td>
                     <td onclick="getinput(9)" class="element" id="9">9<br>Fluorine<br>18.998</td>
-                    <td onclick="getinput(10)" class="element" id="10">10<br>Neon<br>20.18</td>
+                    <td onclick="getinput(10)" class="element noblegas" id="10">10<br>Neon<br>20.18</td>
                 </tr>
                 <tr>
                     <th>3</th>
@@ -66,7 +66,7 @@
                     <td onclick="getinput(15)" class="element" id="15">15<br>Phosphorus<br>30.974</td>
                     <td onclick="getinput(16)" class="element" id="16">16<br>Sulfur<br>32.065</td>
                     <td onclick="getinput(17)" class="element" id="17">17<br>Chlorine<br>35.453</td>
-                    <td onclick="getinput(18)" class="element" id="18">18<br>Argon<br>39.948</td>
+                    <td onclick="getinput(18)" class="element noblegas" id="18">18<br>Argon<br>39.948</td>
                 </tr>
                 <tr>
                     <th>4</th>
@@ -87,7 +87,7 @@
                     <td onclick="getinput(33)" class="element" id="33">33<br>Arsenic<br>74.922</td>
                     <td onclick="getinput(34)" class="element" id="34">34<br>Selenium<br>78.96</td>
                     <td onclick="getinput(35)" class="element" id="35">35<br>Bromine<br>79.904</td>
-                    <td onclick="getinput(36)" class="element" id="36">36<br>Krypton<br>83.8</td>
+                    <td onclick="getinput(36)" class="element noblegas" id="36">36<br>Krypton<br>83.8</td>
                 </tr>
                 <tr>
                     <th>5</th>
@@ -108,7 +108,7 @@
                     <td onclick="getinput(51)" class="element" id="51">51<br>Antimony<br>121.76</td>
                     <td onclick="getinput(52)" class="element" id="52">52<br>Tellurium<br>127.6</td>
                     <td onclick="getinput(53)" class="element" id="53">53<br>Iodine<br>126.905</td>
-                    <td onclick="getinput(54)" class="element" id="54">54<br>Xenon<br>131.293</td>
+                    <td onclick="getinput(54)" class="element noblegas" id="54">54<br>Xenon<br>131.293</td>
                 </tr>
                 <tr>
                     <th>6</th>
@@ -131,7 +131,7 @@
                     <td onclick="getinput(83)" class="element" id="83">83<br>Bismuth<br>208.98</td>
                     <td onclick="getinput(84)" class="element" id="84">84<br>Polonium<br>209</td>
                     <td onclick="getinput(85)" class="element" id="85">85<br>Astatine<br>210</td>
-                    <td onclick="getinput(86)" class="element" id="86">86<br>Radon<br>222</td>
+                    <td onclick="getinput(86)" class="element noblegas" id="86">86<br>Radon<br>222</td>
                 </tr>
                 <tr>
                     <th>7</th>
@@ -139,6 +139,7 @@
                     <td onclick="getinput(88)" class="element" id="88">88<br>Radium<br>226</td>
                     <div id = "89-103">
                         <td class="spacer">89-103</td>
+                    </div>                        
                         <td onclick="getinput(104)" class="element" id="104">104<br>Rutherfordium<br>267</td>
                         <td onclick="getinput(105)" class="element" id="105">105<br>Dubnium<br>268</td>
                         <td onclick="getinput(106)" class="element" id="106">106<br>Seaborgium<br>269</td>
@@ -153,8 +154,8 @@
                         <td onclick="getinput(115)" class="element" id="115">115<br>Moscovium<br>290</td>
                         <td onclick="getinput(116)" class="element" id="116">116<br>Livermorium<br>293</td>
                         <td onclick="getinput(117)" class="element" id="117">117<br>Tennessine<br>294</td>
-                        <td onclick="getinput(118)" class="element" id="118">118<br>Oganesson<br>294</td>
-                    </div>
+                        <td onclick="getinput(118)" class="element noblegas" id="118">118<br>Oganesson<br>294</td>
+
                 </tr>
                 <tr>
                     <td colspan="3" class="empty"></td>
@@ -163,40 +164,40 @@
                 <tr>
                     <td colspan="3" class="empty"></td>
                     <td class="spacer">6</td>
-                    <td onclick="getinput(57)" class="element" id="57">57<br>Lanthanum<br>138.906</td>
-                    <td onclick="getinput(58)" class="element" id="58">58<br>Cerium<br>140.116</td>
-                    <td onclick="getinput(59)" class="element" id="59">59<br>Praseodymium<br>140.908</td>
-                    <td onclick="getinput(60)" class="element" id="60">60<br>Neodymium<br>144.24</td>
-                    <td onclick="getinput(61)" class="element" id="61">61<br>Promethium<br>145</td>
-                    <td onclick="getinput(62)" class="element" id="62">62<br>Samarium<br>150.36</td>
-                    <td onclick="getinput(63)" class="element" id="63">63<br>Europium<br>151.964</td>
-                    <td onclick="getinput(64)" class="element" id="64">64<br>Gadolinium<br>157.25</td>
-                    <td onclick="getinput(65)" class="element" id="65">65<br>Terbium<br>158.925</td>
-                    <td onclick="getinput(66)" class="element" id="66">66<br>Dysprosium<br>162.5</td>
-                    <td onclick="getinput(67)" class="element" id="67">67<br>Holmium<br>164.93</td>
-                    <td onclick="getinput(68)" class="element" id="68">68<br>Erbium<br>167.259</td>   
-                    <td onclick="getinput(69)" class="element" id="69">69<br>Thulium<br>168.934</td>
-                    <td onclick="getinput(70)" class="element" id="70">70<br>Ytterbium<br>173.04</td>
-                    <td onclick="getinput(71)" class="element" id="71">71<br>Lutetium<br>174.967</td>                 
+                    <td onclick="getinput(57)" class="element lanthanide" id="57">57<br>Lanthanum<br>138.906</td>
+                    <td onclick="getinput(58)" class="element lanthanide" id="58">58<br>Cerium<br>140.116</td>
+                    <td onclick="getinput(59)" class="element lanthanide" id="59">59<br>Praseodymium<br>140.908</td>
+                    <td onclick="getinput(60)" class="element lanthanide" id="60">60<br>Neodymium<br>144.24</td>
+                    <td onclick="getinput(61)" class="element lanthanide" id="61">61<br>Promethium<br>145</td>
+                    <td onclick="getinput(62)" class="element lanthanide" id="62">62<br>Samarium<br>150.36</td>
+                    <td onclick="getinput(63)" class="element lanthanide" id="63">63<br>Europium<br>151.964</td>
+                    <td onclick="getinput(64)" class="element lanthanide" id="64">64<br>Gadolinium<br>157.25</td>
+                    <td onclick="getinput(65)" class="element lanthanide" id="65">65<br>Terbium<br>158.925</td>
+                    <td onclick="getinput(66)" class="element lanthanide" id="66">66<br>Dysprosium<br>162.5</td>
+                    <td onclick="getinput(67)" class="element lanthanide" id="67">67<br>Holmium<br>164.93</td>
+                    <td onclick="getinput(68)" class="element lanthanide" id="68">68<br>Erbium<br>167.259</td>   
+                    <td onclick="getinput(69)" class="element lanthanide" id="69">69<br>Thulium<br>168.934</td>
+                    <td onclick="getinput(70)" class="element lanthanide" id="70">70<br>Ytterbium<br>173.04</td>
+                    <td onclick="getinput(71)" class="element lanthanide" id="71">71<br>Lutetium<br>174.967</td>                 
                 </tr>
                 <tr>
                     <td colspan="3" class="empty"></td>
                     <td class="spacer">7</td>
-                    <td onclick="getinput(89)" class="element" id="89">89<br>Actinium<br>227</td>
-                    <td onclick="getinput(90)" class="element" id="90">90<br>Thorium<br>232.038</td>
-                    <td onclick="getinput(91)" class="element" id="91">91<br>Protactinium<br>231.036</td>
-                    <td onclick="getinput(92)" class="element" id="92">92<br>Uranium<br>238.029</td>
-                    <td onclick="getinput(93)" class="element" id="93">93<br>Neptunium<br>237</td>
-                    <td onclick="getinput(94)" class="element" id="94">94<br>Plutonium<br>244</td>
-                    <td onclick="getinput(95)" class="element" id="95">95<br>Americium<br>243</td>
-                    <td onclick="getinput(96)" class="element" id="96">96<br>Curium<br>247</td>
-                    <td onclick="getinput(97)" class="element" id="97">97<br>Berkelium<br>247</td>
-                    <td onclick="getinput(98)" class="element" id="98">98<br>Californium<br>251</td>
-                    <td onclick="getinput(99)" class="element" id="99">99<br>Einsteinium<br>252</td>
-                    <td onclick="getinput(100)" class="element" id="100">100<br>Fermium<br>257</td>
-                    <td onclick="getinput(101)" class="element" id="101">101<br>Mendelevium<br>258</td>
-                    <td onclick="getinput(102)" class="element" id="102">102<br>Nobelium<br>259</td>
-                    <td onclick="getinput(103)" class="element" id="103">103<br>Lawrencium<br>266</td>
+                    <td onclick="getinput(89)" class="element actinide" id="89">89<br>Actinium<br>227</td>
+                    <td onclick="getinput(90)" class="element actinide" id="90">90<br>Thorium<br>232.038</td>
+                    <td onclick="getinput(91)" class="element actinide" id="91">91<br>Protactinium<br>231.036</td>
+                    <td onclick="getinput(92)" class="element actinide" id="92">92<br>Uranium<br>238.029</td>
+                    <td onclick="getinput(93)" class="element actinide" id="93">93<br>Neptunium<br>237</td>
+                    <td onclick="getinput(94)" class="element actinide" id="94">94<br>Plutonium<br>244</td>
+                    <td onclick="getinput(95)" class="element actinide" id="95">95<br>Americium<br>243</td>
+                    <td onclick="getinput(96)" class="element actinide" id="96">96<br>Curium<br>247</td>
+                    <td onclick="getinput(97)" class="element actinide" id="97">97<br>Berkelium<br>247</td>
+                    <td onclick="getinput(98)" class="element actinide" id="98">98<br>Californium<br>251</td>
+                    <td onclick="getinput(99)" class="element actinide" id="99">99<br>Einsteinium<br>252</td>
+                    <td onclick="getinput(100)" class="element actinide" id="100">100<br>Fermium<br>257</td>
+                    <td onclick="getinput(101)" class="element actinide" id="101">101<br>Mendelevium<br>258</td>
+                    <td onclick="getinput(102)" class="element actinide" id="102">102<br>Nobelium<br>259</td>
+                    <td onclick="getinput(103)" class="element actinide" id="103">103<br>Lawrencium<br>266</td>
                 </tr>
             </tbody>
         </table>
