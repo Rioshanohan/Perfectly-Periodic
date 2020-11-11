@@ -38,7 +38,7 @@ table {
   background-color: purple;
 }
 .current{
-  background-color: mediumturquoise;
   border-color: white;
   border-style: double;
+  color: white;
 }
