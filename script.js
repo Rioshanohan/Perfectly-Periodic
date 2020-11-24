@@ -17,7 +17,6 @@ const abbrs = b.split(' ')
 const masses = c.split(' ')
 var i = 0
 const elems = []
-
 class Element {
   constructor (name, abbr, atNum, atWght) {
     this._abbr = abbr
