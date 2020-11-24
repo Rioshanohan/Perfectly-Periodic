@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas2" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas3" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas4" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas5" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas6" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas7" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <canvas id="myCanvas8" width="200" height="100" style="border:1px solid #000000;"></canvas>
+        <script>
+            var cnv = document.getElementById('myCanvas1')
+            var ctx = cnv.getContext('2d')
+            ctx.fillStyle = '#FF0000'
+            ctx.arc(110, 50, 5, 0, 2 * Math.PI)
+            ctx.stroke()
+            ctx.font = "30px Arial";
+            ctx.fillText("H", 80, 55);
+            var lol = document.getElementById('myCanvas2')
+            var lel = lol.getContext('2d')
+            lel.fillStyle = '#FF0000'
+            lel.arc(110, 50, 5, 0, 2 * Math.PI)
+            lel.stroke()
+            lel.arc(110,40, 5, 0, 2 * Math.PI)
+            lel.stroke()
+            lel.font = "30px Arial";
+            lel.fillText("H", 80, 55);
+            var lool = document.getElementById('myCanvas3')
+            var leel = lool.getContext('2d')
+            leel.fillStyle = '#FF0000'
+            leel.arc(110, 50, 5, 0, 2 * Math.PI)
+            leel.arc(110,40, 5, 0, 2 * Math.PI)
+            leel.arc(97, 25, 5, 0, 2 * Math.PI)
+            leel.stroke()
+            leel.font = "30px Arial";
+            leel.fillText("H", 80, 55);
+            var loil = document.getElementById('myCanvas4')
+            var leql = loil.getContext('2d')
+            leql.fillStyle = '#FF0000'
+            leql.arc(110, 50, 5, 0, 2 * Math.PI)
+            leql.arc(110,40, 5, 0, 2 * Math.PI)
+            leql.arc(97, 25, 5, 0, 2 * Math.PI)
+            leql.arc(87, 25, 5, 0, 2 * Math.PI)
+            leql.stroke()
+            leql.font = "30px Arial";
+            leql.fillText("H", 80, 55);
+            
+
+        </script>
+    </body>
+</html>
