@@ -1,6 +1,8 @@
+
 function circle (x, y, context) {
     context.moveTo(x + 5, y)
     context.arc(x, y, 5, 0, 2 * Math.PI)
+    context.stroke()
 }
 var cnv1 = document.getElementById('myCanvas1')
 var ctx1 = cnv1.getContext('2d')
@@ -51,16 +53,47 @@ ctx5.stroke()
 ctx5.font = "18px Arial";
 ctx5.fillText("Og", 80, 55);
 var cnv6 = document.getElementById('myCanvas6')
-var ctx6 = cnv.getContext('2d')
-ctx5.fillStyle = '#000000'
+var ctx6 = cnv6.getContext('2d')
+ctx6.fillStyle = '#000000'
 circle(111, 56, ctx6)
 circle(111, 44, ctx6)
 circle(98, 34, ctx6)
-circle(86, 34, ct6)
+circle(86, 34, ctx6)
 circle(72, 44, ctx6)
 circle(72, 56, ctx6)
 circle(98, 66, ctx6)
 circle(86, 66, ctx6)
 ctx6.stroke()
 ctx6.font = "18px Arial";
-ctx6.fillText("Og", 80, 55);
+ctx6.fillText(" H", 80, 55);
+var cnv7 = document.getElementById('myCanvas7')
+var ctx7 = cnv7.getContext('2d')
+ctx7.font = "18px Arial"
+ctx7.fillStyle = "#000000"
+var valence = 4
+var abbr = 'H'
+switch (valence) {
+    case 8:
+        circle(98, 66, ctx7)
+    case 7:
+        circle(86, 66, ctx7)
+    case 6:
+        circle(72, 56, ctx7)
+    case 5:
+        circle(72, 44, ctx7)
+    case 4:
+        circle(86, 34, ctx7)
+    case 3:
+        circle(98, 34, ctx7)
+    case 2:
+        circle(111, 44, ctx7)
+    case 1:
+        circle(111, 56, ctx7)
+    default:
+        ctx7.fillText('Valence Unknown', 80, 55)
+}
+if (abbr.length === 1) {
+    ctx7.fillText(' '+abbr, 80, 55)
+} else {
+    ctx7.fillText()
+}

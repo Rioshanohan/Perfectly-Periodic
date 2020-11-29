@@ -1,3 +1,4 @@
+
 const names = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon', 'Sodium', 'Magnesium',
   'Aluminum', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium',
   'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc', 'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium',
@@ -19,14 +20,39 @@ const masses = [1.008, 4.003, 6.941, 9.012, 10.811, 12.011, 14.007, 15.999, 18.9
   132.906, 137.327, 138.906, 140.116, 140.908, 144.24, 145, 150.36, 151.964, 157.25, 158.925, 162.5, 164.93, 167.259, 168.934, 173.04, 174.967, 178.49,
   180.948, 183.84, 186.207, 190.23, 192.217, 195.078, 196.967, 200.59, 204.383, 207.2, 208.98, 209, 210, 222, 223, 226, 227, 232.038, 231.036, 238.029,
   237, 244, 243, 247, 247, 251, 252, 257, 258, 259, 266, 267, 268, 269, 270, 277, 278, 281, 282, 285, 286, 289, 290, 293, 294, 294]
-function doOnLoad () {
+const valences = [1, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 1, 1, 1, 1, 1,
+  0, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+  2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var cnv = {}
+var ctx1 = {}
+function displayValence(val, ctx) {
+  switch (val) {
+    case 8:
+      circle(98, 66, ctx)
+    case 7:
+      circle(86, 66, ctx)
+    case 6:
+      circle(72, 56, ctx)
+    case 5:
+      circle(72, 44, ctx)
+    case 4:
+      circle(86, 34, ctx)
+    case 3:
+      circle(98, 34, ctx)
+    case 2:
+      circle(111, 44, ctx)
+    case 1:
+      circle(111, 56, ctx)
+    default:
+      ctx.fillText('Valence Unknown', 80, 55)
+  }
+}
+function doOnLoad() {
   getinput(1)
   elemsInit()
-  var cnv = document.getElementById('myCanvas')
-  var ctx = cnv.getContext('2d')
-  ctx.fillStyle = '#FF0000'
-  ctx.arc(95, 50, 40, 0, 2 * Math.PI)
-  ctx.stroke()
+  cnv = document.getElementById('myCanvas')
+  ctx1 = cnv.getContext('2d')
+  ctx1.fillStyle = '#FF0000'
 }
 document.onkeypress = function (e) {
   e = e || window.event
@@ -34,34 +60,54 @@ document.onkeypress = function (e) {
     document.getElementById('submit').click()
   }
 }
-function circle (x, y, context) {
+function circle(x, y, context) {
   context.moveTo(x + 5, y)
   context.arc(x, y, 5, 0, 2 * Math.PI)
+  context.stroke()
 }
 
 const elements = {}
 var i = 0
 const elems = []
 class Element {
-  constructor (name, abbr, atNum, atWght) {
+  constructor(name, abbr, atNum, atWght, valence) {
     this._abbr = abbr
     this._num = atNum
     this._name = name
     this._mass = atWght
+    this._valence = valence
     elements[this._num] = this
   }
 
-  shortexplanation () {
-    return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom. <br> You can find the number of neutrons by subtracting the atomic number.`
+  shortexplanation() {
+    if (this._valence === 1) {
+      return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
+      ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom).
+      <br> It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.
+      <br>You can find the number of neutrons by subtracting the atomic number.<br> This atom has ${this._valence.toString().fontcolor('blue')} valence 
+      electron.<br>The valence electrons of an atom are how many electrons they have in its outer shell.`
+    } if (this._valence === 0) {
+      return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
+      ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> 
+      It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.<br>You can 
+      find the number of neutrons by subtracting the atomic number.<br> We don't know how many valence electrons this atom has.<br>The valence electrons 
+      of an atom are how many electrons they have in its outer shell.`
+    } else {
+      return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
+      ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> 
+      It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.<br>You can 
+      find the number of neutrons by subtracting the atomic number.<br> This atom has ${this._valence.toString().fontcolor('blue')} valence electrons.
+      <br>The valence electrons of an atom are how many electrons they have in its outer shell.`
+    }
   }
 }
 
 while (i < names.length) {
-  eval('const ' + names[i] + ' = new Element(\'' + names[i] + '\', \'' + abbrs[i] + '\', ' + (i + 1) + ',' + masses[i] + ')')
+  eval('const ' + names[i] + ' = new Element(\'' + names[i] + '\', \'' + abbrs[i] + '\',  ' + (i + 1) + ', ' + masses[i] + ', ' + valences[i] + ')')
   i++
 }
 
-function getinput (value) {
+function getinput(value) {
   var paragraph = document.getElementById('p1')
   var check = Number(value)
   if (isNaN(check)) {
@@ -71,6 +117,7 @@ function getinput (value) {
   }
   if (typeof value === 'number') {
     console.log('is number')
+    displayValence(elements[value]._valence, ctx1)
     paragraph.innerHTML = elements[value].shortexplanation()
     setCurrentById(value)
     document.getElementById('myInput').value = ''
@@ -78,20 +125,22 @@ function getinput (value) {
     if (value.length <= 2) {
       console.log('is abbr')
       for (var key in elements) {
-        setCurrentById(key)
         if (elements[key]._abbr.toUpperCase() === value.toUpperCase()) {
           paragraph.innerHTML = elements[key].shortexplanation()
           document.getElementById('myInput').value = ''
+          displayValence(elements[key]._valence, ctx1)
+          setCurrentById(key)
           break
         }
       }
     } else {
       console.log('is name')
       for (key in elements) {
-        setCurrentById(key)
         if (elements[key]._name.toUpperCase() === value.toUpperCase()) {
           paragraph.innerHTML = elements[key].shortexplanation()
           document.getElementById('myInput').value = ''
+          setCurrentById(key)
+          displayValence(elements[key]._valence, ctx1)
           break
         }
       }
@@ -104,7 +153,7 @@ function elemsInit() {
     elems.push(tempe[item])
   }
 }
-function getElemsByClass (clas) {
+function getElemsByClass(clas) {
   var returns = []
   var classes = document.getElementsByClassName('element')
   for (var cls = 0; cls < classes.length; cls++) {
@@ -114,10 +163,10 @@ function getElemsByClass (clas) {
   }
   return returns
 }
-function getClassList (element) {
+function getClassList(element) {
   return element.className.split(' ')
 }
-function setCurrentById (newElem) {
+function setCurrentById(newElem) {
   var currentCurrent = getElemsByClass('current')
   for (var gg = 0; gg < currentCurrent.length; gg++) {
     var classList = getClassList(currentCurrent[gg])
@@ -127,7 +176,7 @@ function setCurrentById (newElem) {
   newElemPush.push('current')
   document.getElementById(newElem).className = newElemPush.join(' ')
 }
-function boom (param) {
+function boom(param) {
   switch (param) {
     case 'jeff':
       console.log('jeff')
@@ -139,10 +188,4 @@ function boom (param) {
       console.log('you got noped')
       break
   }
-}
-function generate (index) {
-  console.log(`<td onclick='getinput(${index})' class='element' id='${elements[index]._num}'>${elements[index]._num}<br>${elements[index]._name}<br>${elements[index]._mass}</td>`)
-}
-for (i = 1; i <= 118; i++) {
-  generate(i)
 }

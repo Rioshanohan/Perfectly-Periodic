@@ -1,29 +1,35 @@
 body{
-    background-color:springgreen;
-    border-radius: 15px;
+  background-color:springgreen;
 }
 h1 {
-    color:midnightblue;
+  color:midnightblue;
 }
 th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    text-align: center;
+  height: 100px;
+  width: 100px;
+  border-collapse: collapse;
+  text-align: center;
 }
-table {
-    border-collapse: collapse;
+thead th {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+tbody th {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 .spacer {
-    border: none;
-    background-color: aqua;
+  border: none;
+  background-color: aqua;
 }
 .element {
+  border: 1px solid black;
   border-radius: 15px;
   border-width: 2px;
   background-color: brown;
 }
 .empty {
-    border: none;
+  border: none;
 }
 .actinide {
   background-color: violet;
