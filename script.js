@@ -1,4 +1,3 @@
-
 const names = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon', 'Sodium', 'Magnesium',
   'Aluminum', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium', 'Scandium', 'Titanium', 'Vanadium', 'Chromium',
   'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc', 'Gallium', 'Germanium', 'Arsenic', 'Selenium', 'Bromine', 'Krypton', 'Rubidium',
@@ -25,35 +24,89 @@ const valences = [1, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2,
   2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 var cnv = {}
 var ctx1 = {}
-function displayValence(val, ctx) {
-  switch (val) {
-    case 8:
-      circle(98, 66, ctx)
-    case 7:
-      circle(86, 66, ctx)
-    case 6:
-      circle(72, 56, ctx)
-    case 5:
-      circle(72, 44, ctx)
-    case 4:
-      circle(86, 34, ctx)
-    case 3:
-      circle(98, 34, ctx)
-    case 2:
-      circle(111, 44, ctx)
-    case 1:
-      circle(111, 56, ctx)
-    default:
-      ctx.fillText('Valence Unknown', 80, 55)
-  }
-}
 function doOnLoad() {
   getinput(1)
   elemsInit()
-  cnv = document.getElementById('myCanvas')
+  cnv = document.getElementById('myCanvas1')
   ctx1 = cnv.getContext('2d')
-  ctx1.fillStyle = '#FF0000'
+  ctx1.fillStyle = '#000000'
+  ctx1.save()
 }
+cnv = document.getElementById('myCanvas1')
+ctx1 = cnv.getContext('2d')
+ctx1.fillStyle = '#000000'
+ctx1.save()
+function displayValence(elem, ctx) {
+  var w = cnv.width
+  cnv.width = 1
+  cnv.width = w
+  ctx.restore()
+  ctx.font = '18px Arial'
+  ctx.fillStyle = '#000000'
+  switch (elem._valence) {
+    case 8:
+      circle(98, 66, ctx)
+      circle(86, 66, ctx)
+      circle(72, 56, ctx)
+      circle(72, 44, ctx)
+      circle(86, 34, ctx)
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 7:
+      circle(86, 66, ctx)
+      circle(72, 56, ctx)
+      circle(72, 44, ctx)
+      circle(86, 34, ctx)
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 6:
+      circle(72, 56, ctx)
+      circle(72, 44, ctx)
+      circle(86, 34, ctx)
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 5:
+      circle(72, 44, ctx)
+      circle(86, 34, ctx)
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 4:
+      circle(86, 34, ctx)
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 3:
+      circle(98, 34, ctx)
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 2:
+      circle(111, 44, ctx)
+      circle(111, 56, ctx)
+      break
+    case 1:
+      circle(111, 56, ctx)
+      break
+    default:
+      ctx.fillText('Valence Unknown', 10, 55)
+      break
+  }
+  if (elem._abbr.length === 1 && elem._valence !== 0) {
+    ctx.fillText(' '+elem._abbr, 80, 55)
+  } else if (elem._abbr.length === 2 && elem._valence !== 0) {
+    ctx.fillText(elem._abbr, 80, 55)
+  }
+}
+
 document.onkeypress = function (e) {
   e = e || window.event
   if (e.key === 'Enter') {
@@ -117,7 +170,8 @@ function getinput(value) {
   }
   if (typeof value === 'number') {
     console.log('is number')
-    displayValence(elements[value]._valence, ctx1)
+    ctx1.clearRect(0, 0, cnv.width, cnv.height);
+    displayValence(elements[value], ctx1)
     paragraph.innerHTML = elements[value].shortexplanation()
     setCurrentById(value)
     document.getElementById('myInput').value = ''
@@ -126,9 +180,10 @@ function getinput(value) {
       console.log('is abbr')
       for (var key in elements) {
         if (elements[key]._abbr.toUpperCase() === value.toUpperCase()) {
+          ctx1.clearRect(0, 0, cnv.width, cnv.height);
           paragraph.innerHTML = elements[key].shortexplanation()
           document.getElementById('myInput').value = ''
-          displayValence(elements[key]._valence, ctx1)
+          displayValence(elements[key], ctx1)
           setCurrentById(key)
           break
         }
@@ -137,10 +192,11 @@ function getinput(value) {
       console.log('is name')
       for (key in elements) {
         if (elements[key]._name.toUpperCase() === value.toUpperCase()) {
+          ctx1.clearRect(0, 0, cnv.width, cnv.height);
           paragraph.innerHTML = elements[key].shortexplanation()
           document.getElementById('myInput').value = ''
           setCurrentById(key)
-          displayValence(elements[key]._valence, ctx1)
+          displayValence(elements[key], ctx1)
           break
         }
       }

@@ -70,7 +70,7 @@ var cnv7 = document.getElementById('myCanvas7')
 var ctx7 = cnv7.getContext('2d')
 ctx7.font = "18px Arial"
 ctx7.fillStyle = "#000000"
-var valence = 4
+var valence = 0
 var abbr = 'H'
 switch (valence) {
     case 8:
@@ -89,11 +89,14 @@ switch (valence) {
         circle(111, 44, ctx7)
     case 1:
         circle(111, 56, ctx7)
+        break
     default:
-        ctx7.fillText('Valence Unknown', 80, 55)
+        ctx7.fillText('Valence Unknown', 10, 55)
 }
 if (abbr.length === 1) {
     ctx7.fillText(' '+abbr, 80, 55)
 } else {
     ctx7.fillText()
 }
+
+canvas
