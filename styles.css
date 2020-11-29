@@ -6,17 +6,13 @@ h1 {
 }
 th, td {
   height: 100px;
-  width: 100px;
   border-collapse: collapse;
   text-align: center;
 }
-thead th {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
-tbody th {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-radius: 15px;
 }
 .spacer {
   border: none;
@@ -27,6 +23,13 @@ tbody th {
   border-radius: 15px;
   border-width: 2px;
   background-color: brown;
+  width: 100%;
+}
+.sidel {
+  float: left;
+}
+.sider {
+  float: right;
 }
 .empty {
   border: none;
@@ -47,4 +50,7 @@ tbody th {
   border-color: white;
   border-style: double;
   color: white;
+}
+canvas {
+  margin-right:15px;
 }

@@ -138,19 +138,19 @@ class Element {
       ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom).
       <br> It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.
       <br>You can find the number of neutrons by subtracting the atomic number.<br> This atom has ${this._valence.toString().fontcolor('blue')} valence 
-      electron.<br>The valence electrons of an atom are how many electrons they have in its outer shell.`
+      electron.<br>The valence electrons of an atom are how many electrons it has in its outer shell.`
     } if (this._valence === 0) {
       return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
       ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> 
       It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.<br>You can 
       find the number of neutrons by subtracting the atomic number.<br> We don't know how many valence electrons this atom has.<br>The valence electrons 
-      of an atom are how many electrons they have in its outer shell.`
+      of an atom are how many electrons it has in its outer shell.`
     } else {
       return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
       ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom). <br> 
       It has an average atomic mass of ${this._mass.toString().fontcolor('blue')}, which is the number of protons and neutrons in that atom.<br>You can 
       find the number of neutrons by subtracting the atomic number.<br> This atom has ${this._valence.toString().fontcolor('blue')} valence electrons.
-      <br>The valence electrons of an atom are how many electrons they have in its outer shell.`
+      <br>The valence electrons of an atom are how many electrons it has in its outer shell.`
     }
   }
 }

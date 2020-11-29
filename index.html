@@ -14,17 +14,21 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
-        <script src="script.js"></script>
         <p>Type an atomic number, element abbreviation, or element name. <br>
         Click Search and you will be given a brief explanation of the element!</p>
-        <input type="text" placeholder="Search" id="myInput">
-        <button id="submit" onclick="getinput(document.getElementById('myInput').value)">Search</button>
-        <p id = "p1"></p>
+        <div>
+            <input type="text" placeholder="Search" id="myInput">
+            <button id="submit" onclick="getinput(document.getElementById('myInput').value)">Search</button>
+        </div>
+        <div>
+            <canvas class='sidel' id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
+            <p id="p1"></p>
+        </div>
+        <script src="script.js"></script>
         <table>
             <thead>
                 <tr>
-                    <th style='border-left: 1px solid black; border-bottom: none; border-radius: 5px;'></th>
+                    <th></th>
                     <th>1</th>
                     <th>2</th>
                     <th>3</th>
@@ -42,7 +46,7 @@
                     <th>15</th>
                     <th>16</th>
                     <th>17</th>
-                    <th style='border-right: 1px solid black; border-radius: 5px;'>18</th>
+                    <th>18</th>
                 </tr>
             </thead>
             <tbody>
@@ -142,7 +146,7 @@
                     <td onclick="getinput(86)" class="element noblegas" id="86">86<br>Radon<br>222</td>
                 </tr>
                 <tr>
-                    <th style='border-bottom: 1px solid black; border-radius: 5px;'>7</th>
+                    <th>7</th>
                     <td onclick="getinput(87)" class="element" id="87">87<br>Francium<br>223</td>
                     <td onclick="getinput(88)" class="element" id="88">88<br>Radium<br>226</td>
                     <div id = "89-103">
