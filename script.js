@@ -22,8 +22,10 @@ const masses = [1.008, 4.003, 6.941, 9.012, 10.811, 12.011, 14.007, 15.999, 18.9
 const valences = [1, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 1, 1, 1, 1, 1,
   0, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
   2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  
 var cnv = {}
 var ctx1 = {}
+
 function doOnLoad() {
   getinput(1)
   elemsInit()
@@ -33,10 +35,12 @@ function doOnLoad() {
   ctx1.save()
   document.getElementById('baseButton').click()
 }
+
 cnv = document.getElementById('myCanvas1')
 ctx1 = cnv.getContext('2d')
 ctx1.fillStyle = '#000000'
 ctx1.save()
+
 function displayValence(elem, ctx) {
   var w = cnv.width
   cnv.width = 1
@@ -114,6 +118,7 @@ document.onkeypress = function (e) {
     document.getElementById('submit').click()
   }
 }
+
 function circle(x, y, context) {
   context.moveTo(x + 5, y)
   context.arc(x, y, 5, 0, 2 * Math.PI)
@@ -160,6 +165,7 @@ while (i < names.length) {
   eval('const ' + names[i] + ' = new Element(\'' + names[i] + '\', \'' + abbrs[i] + '\',  ' + (i + 1) + ', ' + masses[i] + ', ' + valences[i] + ')')
   i++
 }
+
 function openTab (evt, tabName) {
   var i, tabContent, tabLinks
 
@@ -176,6 +182,7 @@ function openTab (evt, tabName) {
   document.getElementById(tabName).style.display = 'block'
   evt.currentTarget.className += ' active'
 }
+
 function getinput(value) {
   var m
   var paragraph = document.getElementById('basDesc')
@@ -229,12 +236,14 @@ function getinput(value) {
     }
   }
 }
+
 function elemsInit() {
   var tempe = getElemsByClass('element')
   for (var item = 0; item < tempe.length; item++) {
     elems.push(tempe[item])
   }
 }
+
 function getElemsByClass(clas) {
   var returns = []
   var classes = document.getElementsByClassName('element')
@@ -245,9 +254,11 @@ function getElemsByClass(clas) {
   }
   return returns
 }
+
 function getClassList(element) {
   return element.className.split(' ')
 }
+
 function setCurrentById(newElem) {
   var currentCurrent = getElemsByClass('current')
   for (var gg = 0; gg < currentCurrent.length; gg++) {
@@ -258,6 +269,7 @@ function setCurrentById(newElem) {
   newElemPush.push('current')
   document.getElementById(newElem).className = newElemPush.join(' ')
 }
+
 function boom(param) {
   switch (param) {
     case 'jeff':
