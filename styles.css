@@ -1,29 +1,43 @@
+:root {
+  --elem-main: brown;
+  --elem-curr: white;
+  --elem-act: violet;
+  --elem-lanth: rgb(228, 148, 0);
+  --elem-noble: purple;
+  --elem-non: aqua;
+  --spacer: aqua;
+}
 body{
-  background-color:springgreen;
+  background-color: skyblue;
 }
 h1 {
   color:midnightblue;
 }
-th, td {
-  height: 100px;
-  border-collapse: collapse;
+th{
+  height: 75px;
   text-align: center;
-}
-th {
   border: 1px solid black;
   border-collapse: collapse;
-  border-radius: 15px;
+}
+* {
+  zoom: 99%;
+  -ms-zoom: 99%;
+  -webkit-zoom: 99%;
+  transform: none;
+  transform-origin: none;
+  -moz-transform:  scale(0.99,0.99);
+  -moz-transform-origin: left center;
+}
+table {
+  width: 90px
 }
 .spacer {
   border: none;
-  background-color: aqua;
+  background-color: var(--spacer);
+  text-align: center;
 }
-.element {
-  border: 1px solid black;
-  border-radius: 15px;
-  border-width: 2px;
-  background-color: brown;
-  width: 100%;
+canvas {
+  margin-right:15px;
 }
 .sidel {
   float: left;
@@ -31,8 +45,20 @@ th {
 .sider {
   float: right;
 }
+.current{
+  border-color: var(--elem-curr);
+  border-style: double;
+  color: var(--elem-curr);
+}
 .empty {
   border: none;
+}
+.element {
+  border: 1px solid black;
+  border-radius: 15px;
+  border-width: 2px;
+  background-color: var(--elem-main);
+  text-align: center;
 }
 .actinide {
   background-color: violet;
@@ -45,12 +71,4 @@ th {
 }
 .noblegas {
   background-color: purple;
-}
-.current{
-  border-color: white;
-  border-style: double;
-  color: white;
-}
-canvas {
-  margin-right:15px;
 }
