@@ -31,6 +31,7 @@ function doOnLoad() {
   ctx1 = cnv.getContext('2d')
   ctx1.fillStyle = '#000000'
   ctx1.save()
+  document.getElementById('baseButton').click()
 }
 cnv = document.getElementById('myCanvas1')
 ctx1 = cnv.getContext('2d')
@@ -176,6 +177,7 @@ function openTab (evt, tabName) {
   evt.currentTarget.className += ' active'
 }
 function getinput(value) {
+  var m
   var paragraph = document.getElementById('basDesc')
   var check = Number(value)
   if (isNaN(check)) {
@@ -185,11 +187,14 @@ function getinput(value) {
   }
   if (typeof value === 'number') {
     console.log('is number')
-    ctx1.clearRect(0, 0, cnv.width, cnv.height);
+    ctx1.clearRect(0, 0, cnv.width, cnv.height)
     displayValence(elements[value], ctx1)
     paragraph.innerHTML = elements[value].shortexplanation()
     setCurrentById(value)
     document.getElementById('myInput').value = ''
+    m = elements[value]._num * 2
+    document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${value}</sub>${elements[value]._abbr}`
+    document.getElementById('isotope').value = elements[value]._name.toLowerCase() + '-' + m
   } else if (typeof value === 'string') {
     if (value.length <= 2) {
       console.log('is abbr')
@@ -200,7 +205,9 @@ function getinput(value) {
           document.getElementById('myInput').value = ''
           displayValence(elements[key], ctx1)
           setCurrentById(key)
-          break
+          m = elements[key]._num * 2
+          document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${key}</sub>${elements[key]._abbr}`
+          document.getElementById('isotope').value = elements[key]._name.toLowerCase() + '-' + m
         }
       }
     } else {
@@ -213,6 +220,9 @@ function getinput(value) {
           setCurrentById(key)
           displayValence(elements[key], ctx1)
           document.getElementById()
+          m = elements[key]._num * 2
+          document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${key}</sub>${elements[key]._abbr}`
+          document.getElementById('isotope').value = elements[key]._name.toLowerCase() + '-' + m
           break
         }
       }
