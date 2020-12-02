@@ -1,10 +1,15 @@
 :root {
-  --elem-main: brown;
+  --elem-trans: brown;
   --elem-curr: white;
   --elem-act: violet;
   --elem-lanth: rgb(228, 148, 0);
-  --elem-noble: purple;
-  --elem-non: aqua;
+  --elem-noble: rgb(200, 0, 255);
+  --elem-non: blue;
+  --elem-alk: orangered;
+  --elem-alk-earth: yellow;
+  --elem-metalloid: aqua;
+  --elem-pt-metal: chartreuse;
+  --elem-unused: grey;
   --spacer: aqua;
 }
 body{
@@ -46,7 +51,7 @@ canvas {
   float: right;
 }
 .current{
-  border-color: var(--elem-curr);
+  border: 2px solid var(--elem-curr);
   border-style: double;
   color: var(--elem-curr);
 }
@@ -57,18 +62,33 @@ canvas {
   border: 1px solid black;
   border-radius: 15px;
   border-width: 2px;
-  background-color: var(--elem-main);
+  background-color: var(--elem-unused);
   text-align: center;
 }
+.trans {
+  background-color: var(--elem-trans);
+}
 .actinide {
-  background-color: violet;
+  background-color: var(--elem-act);
 }
 .nonmetal{
-  background-color: aqua;
+  background-color: var(--elem-non);
 }
 .lanthanide {
-  background-color: rgb(228, 148, 0);
+  background-color:var(--elem-lanth);
 }
 .noblegas {
-  background-color: purple;
+  background-color: var(--elem-noble);
+}
+.alkali {
+  background-color: var(--elem-alk);
+}
+.alkali-earth {
+  background-color: var(--elem-alk-earth);
+}
+.metalloid {
+  background-color: var(--elem-metalloid);
+}
+.post-trans {
+  background-color: var(--elem-pt-metal);
 }
