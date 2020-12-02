@@ -16,13 +16,24 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <p>Type an atomic number, element abbreviation, or element name. <br>
         Click Search and you will be given a brief explanation of the element!</p>
-        <div>
-            <input type="text" placeholder="Search" id="myInput">
-            <button id="submit" onclick="getinput(document.getElementById('myInput').value)">Search</button>
+        <div class="tab" style="padding-left: 300px;">
+          <button class="tablinks" onclick="openTab(event, 'basic')">Basic Description</button>
+          <button class="tablinks" onclick="openTab(event, 'radioactive')">Radioactive Decay</button>
         </div>
-        <div>
+        <div id='basic' class="tabcontent">
+            <input type="text" class="sidel" placeholder="Search" id="myInput">
+            <button id="submit" class="sidel"onclick="getinput(document.getElementById('myInput').value)">Search</button>
+            <br>
+            <br>
             <canvas class='sidel' id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
-            <p id="p1"></p>
+            <span id="basDesc"></span>
+        </div>
+        <div id="radioactive" class="tabcontent">
+          <button onclick="alphaDecay()">Alpha</button>
+          <button onclick="betaDecay()">Beta</button>
+          <input id="isotope" type="text" value="beryllium-8">
+          <button onclick="isotope()">Set</button>
+          <p id="radioP"><sup>8</sup><sub>4</sub>Be</p>
         </div>
         <script src="script.js"></script>
         <table>

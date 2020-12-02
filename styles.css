@@ -25,13 +25,14 @@ th{
   border-collapse: collapse;
 }
 * {
-  zoom: 99%;
-  -ms-zoom: 99%;
-  -webkit-zoom: 99%;
+  zoom: 97.75%;
+  -ms-zoom: 97.75%;
+  -webkit-zoom: 97.75%;
   transform: none;
   transform-origin: none;
-  -moz-transform:  scale(0.99,0.99);
+  -moz-transform:  scale(0.9775,0.9775);
   -moz-transform-origin: left center;
+  font-family: Helvetica;
 }
 table {
   width: 90px
@@ -91,4 +92,31 @@ canvas {
 }
 .post-trans {
   background-color: var(--elem-pt-metal);
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
 }

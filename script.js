@@ -159,9 +159,24 @@ while (i < names.length) {
   eval('const ' + names[i] + ' = new Element(\'' + names[i] + '\', \'' + abbrs[i] + '\',  ' + (i + 1) + ', ' + masses[i] + ', ' + valences[i] + ')')
   i++
 }
+function openTab (evt, tabName) {
+  var i, tabContent, tabLinks
 
+  tabContent = document.getElementsByClassName('tabcontent')
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = 'none'
+  }
+
+  tabLinks = document.getElementsByClassName('tablinks')
+  for (i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(' active', '')
+  }
+
+  document.getElementById(tabName).style.display = 'block'
+  evt.currentTarget.className += ' active'
+}
 function getinput(value) {
-  var paragraph = document.getElementById('p1')
+  var paragraph = document.getElementById('basDesc')
   var check = Number(value)
   if (isNaN(check)) {
     console.log('not a number')
@@ -197,6 +212,7 @@ function getinput(value) {
           document.getElementById('myInput').value = ''
           setCurrentById(key)
           displayValence(elements[key], ctx1)
+          document.getElementById()
           break
         }
       }
@@ -244,4 +260,53 @@ function boom(param) {
       console.log('you got noped')
       break
   }
+}
+
+function alphaDecay () {
+  var inner = document.getElementById('radioP').innerHTML
+  var m = Number(inner.slice(inner.indexOf('<sup>') + 5, inner.indexOf('</sup>')))
+  var e = Number(inner.slice(inner.indexOf('<sub>') + 5, inner.indexOf('</sub>')))
+  if (m <= 4 || e <= 2) {
+    return
+  }
+  var newm = m - 4
+  var newe = e - 2
+  document.getElementById('radioP').innerHTML = `<sup>${newm}</sup><sub>${newe}</sub>${elements[newe]._abbr}`
+  document.getElementById('isotope').value = elements[newe]._name.toLowerCase() + '-' + newm
+}
+
+function betaDecay () {
+  var inner = document.getElementById('radioP').innerHTML
+  var m = Number(inner.slice(inner.indexOf('<sup>') + 5, inner.indexOf('</sup>')))
+  var e = Number(inner.slice(inner.indexOf('<sub>') + 5, inner.indexOf('</sub>')))
+  var newe = e + 1
+  if (newe > m) {
+    return
+  }
+  document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${newe}</sub>${elements[newe]._abbr}`
+  document.getElementById('isotope').value = elements[newe]._name.toLowerCase() + '-' + m
+}
+
+function halfLife (amount, hmh) {
+  for (var i = 0; i < hmh; i++) {
+    amount = amount / 2
+  }
+  document.getElementById('radioP').innerHTML = `${hmh} halflifes have passed. Your element now has ${amount} grams left`
+}
+
+function isotope () {
+  var iso = document.getElementById('isotope')
+  var isoVal = iso.value
+  var isoArr = isoVal.split(/[-\s]/)
+  var m = isoArr[1]
+  var e = 0
+  for (var i in elements) {
+    if (isoArr[0].toLowerCase() === elements[i]._name.toLowerCase()) {
+      e = i
+    }
+  }
+  if (e === 0) {
+    return
+  }
+  document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${e}</sub>${elements[e]._abbr}`
 }
