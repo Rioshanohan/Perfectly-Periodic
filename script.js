@@ -22,11 +22,11 @@ const masses = [1.008, 4.003, 6.941, 9.012, 10.811, 12.011, 14.007, 15.999, 18.9
 const valences = [1, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 1, 1, 1, 1, 1,
   0, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
   2, 2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  
+
 var cnv = {}
 var ctx1 = {}
 
-function doOnLoad() {
+function doOnLoad () {
   getinput(1)
   elemsInit()
   cnv = document.getElementById('myCanvas1')
@@ -41,7 +41,7 @@ ctx1 = cnv.getContext('2d')
 ctx1.fillStyle = '#000000'
 ctx1.save()
 
-function displayValence(elem, ctx) {
+function displayValence (elem, ctx) {
   var w = cnv.width
   cnv.width = 1
   cnv.width = w
@@ -116,10 +116,11 @@ document.onkeypress = function (e) {
   e = e || window.event
   if (e.key === 'Enter') {
     document.getElementById('submit').click()
+    document.getElementById('setIsotope').click()
   }
 }
 
-function circle(x, y, context) {
+function circle (x, y, context) {
   context.moveTo(x + 5, y)
   context.arc(x, y, 5, 0, 2 * Math.PI)
   context.stroke()
@@ -129,7 +130,7 @@ const elements = {}
 var i = 0
 const elems = []
 class Element {
-  constructor(name, abbr, atNum, atWght, valence) {
+  constructor (name, abbr, atNum, atWght, valence) {
     this._abbr = abbr
     this._num = atNum
     this._name = name
@@ -138,7 +139,7 @@ class Element {
     elements[this._num] = this
   }
 
-  shortexplanation() {
+  shortexplanation () {
     if (this._valence === 1) {
       return `${this._name.fontcolor('blue')}'s abbreviation is ${this._abbr.fontcolor('blue')}. <br> It has an atomic number of 
       ${this._num.toString().fontcolor('blue')}, which means it has that many protons (and the same number of electrons in a neutral atom).
@@ -183,7 +184,10 @@ function openTab (evt, tabName) {
   evt.currentTarget.className += ' active'
 }
 
-function getinput(value) {
+function getinput (value) {
+  if (value === '' || value === undefined) {
+    return
+  }
   var m
   var paragraph = document.getElementById('basDesc')
   var check = Number(value)
@@ -191,6 +195,9 @@ function getinput(value) {
     console.log('not a number')
   } else {
     value = Number(value)
+    if (value > 118 || value < 0) {
+      return
+    }
   }
   if (typeof value === 'number') {
     console.log('is number')
@@ -237,14 +244,14 @@ function getinput(value) {
   }
 }
 
-function elemsInit() {
+function elemsInit () {
   var tempe = getElemsByClass('element')
   for (var item = 0; item < tempe.length; item++) {
     elems.push(tempe[item])
   }
 }
 
-function getElemsByClass(clas) {
+function getElemsByClass (clas) {
   var returns = []
   var classes = document.getElementsByClassName('element')
   for (var cls = 0; cls < classes.length; cls++) {
@@ -255,11 +262,11 @@ function getElemsByClass(clas) {
   return returns
 }
 
-function getClassList(element) {
+function getClassList (element) {
   return element.className.split(' ')
 }
 
-function setCurrentById(newElem) {
+function setCurrentById (newElem) {
   var currentCurrent = getElemsByClass('current')
   for (var gg = 0; gg < currentCurrent.length; gg++) {
     var classList = getClassList(currentCurrent[gg])
@@ -288,11 +295,11 @@ function alphaDecay () {
   var inner = document.getElementById('radioP').innerHTML
   var m = Number(inner.slice(inner.indexOf('<sup>') + 5, inner.indexOf('</sup>')))
   var e = Number(inner.slice(inner.indexOf('<sub>') + 5, inner.indexOf('</sub>')))
-  if (m <= 4 || e <= 2) {
-    return
-  }
   var newm = m - 4
   var newe = e - 2
+  if (m <= 4 || e <= 2 || newe > newm) {
+    return
+  }
   document.getElementById('radioP').innerHTML = `<sup>${newm}</sup><sub>${newe}</sub>${elements[newe]._abbr}`
   document.getElementById('isotope').value = elements[newe]._name.toLowerCase() + '-' + newm
 }
@@ -302,7 +309,7 @@ function betaDecay () {
   var m = Number(inner.slice(inner.indexOf('<sup>') + 5, inner.indexOf('</sup>')))
   var e = Number(inner.slice(inner.indexOf('<sub>') + 5, inner.indexOf('</sub>')))
   var newe = e + 1
-  if (newe > m) {
+  if (newe > m || newe > 118) {
     return
   }
   document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${newe}</sub>${elements[newe]._abbr}`
