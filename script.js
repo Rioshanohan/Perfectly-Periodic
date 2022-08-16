@@ -206,7 +206,7 @@ function getinput (value) {
     paragraph.innerHTML = elements[value].shortexplanation()
     setCurrentById(value)
     document.getElementById('myInput').value = ''
-    m = Math.round(elements[value].mass)
+    m = Math.round(elements[value]._mass)
     document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${value}</sub>${elements[value]._abbr}`
     document.getElementById('isotope').value = elements[value]._name.toLowerCase() + '-' + m
   } else if (typeof value === 'string') {
