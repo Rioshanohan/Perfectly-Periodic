@@ -206,7 +206,7 @@ function getinput (value) {
     paragraph.innerHTML = elements[value].shortexplanation()
     setCurrentById(value)
     document.getElementById('myInput').value = ''
-    m = elements[value]._num * 2
+    m = Math.round(elements[value].mass)
     document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${value}</sub>${elements[value]._abbr}`
     document.getElementById('isotope').value = elements[value]._name.toLowerCase() + '-' + m
   } else if (typeof value === 'string') {
@@ -219,7 +219,7 @@ function getinput (value) {
           document.getElementById('myInput').value = ''
           displayValence(elements[key], ctx1)
           setCurrentById(key)
-          m = elements[key]._num * 2
+          m = Math.round(elements[key]._mass)
           document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${key}</sub>${elements[key]._abbr}`
           document.getElementById('isotope').value = elements[key]._name.toLowerCase() + '-' + m
         }
@@ -234,7 +234,7 @@ function getinput (value) {
           setCurrentById(key)
           displayValence(elements[key], ctx1)
           document.getElementById()
-          m = elements[key]._num * 2
+          m = Math.round(elements[key]._mass)
           document.getElementById('radioP').innerHTML = `<sup>${m}</sup><sub>${key}</sub>${elements[key]._abbr}`
           document.getElementById('isotope').value = elements[key]._name.toLowerCase() + '-' + m
           break
